@@ -39,6 +39,7 @@ export default function Sidebar() {
       </div>
       <div className="nav nav-pills flex-column col-12 col-md-6 col-lg-12 p-0">
         <div className='p-2 p-md-3 p-lg-0'>
+          
         <small className='nav-linkmt-0 ps-1 pb-0 mt-lg-3' style={{color: "black", fontSize: "14px"}}>Utility</small>
         <div className='d-flex d-lg-block w-100'>
         <Link to="/qr-scanner" className="nav-link my-2 mb-md-3 p-3 me-2 d-flex flex-column d-lg-block col-6 col-lg-11 me-md-3" aria-current="page" style={{color: window.location.pathname === "/qr-scanner" ? "white": "black", border: "2px solid black", borderRadius: "10px", background : window.location.pathname === "/qr-scanner" ? "black" : "white", boxShadow:window.location.pathname === "/qr-scanner" ? "5px 5px #E04949": null}}>
