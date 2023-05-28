@@ -6,6 +6,7 @@ import QrScanner from 'react-qr-scanner';
 
 import { BrowserView, MobileOnlyView, TabletView } from 'react-device-detect';
 import OrderTicketModal from '../common/OrderTicketModal';
+import Navbar from '../common/Navbar';
 
 
 export default function PromoterQRScanner() {
@@ -64,9 +65,7 @@ let isDesktop = (width > 768);
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-light align-items-center headerback w-100 py-2 py-md-3 px-3 px-lg-5 px-md-3" style={{backgroundColor: "black"}}>
-        <a className="navbar-brand ml-lg-4 ml-2 py-3 py-md-1 text-white" style={{fontWeight: "800"}} href="/"> <h3 className="primary-header m-0">BottmzUp</h3></a>
-        </nav>
+      <Navbar/>
       <div className='d-lg-flex px-lg-5 p-3'>
         <div className='col-lg-3 p-0'>
           <PromoterSidebar/>
@@ -109,13 +108,11 @@ let isDesktop = (width > 768);
           <MobileOnlyView>
           {result ? (
             <>
-              {
-                isLoading && <div className='d-flex justify-content-center mt-auto' style={{height: "50vh"}}>
-                <div className='d-flex align-items-center'>
-                <span><img src={process.env.PUBLIC_URL + "/images/output-onlinegiftools.gif"} style={{height: '100px', width: "100px", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%"}} alt=""/></span>
-                </div>
-                </div>
-              }
+             {isLoading && <div className='d-flex justify-content-center mt-auto mx-auto' style={{height: "50vh"}}>
+          <div className='d-flex align-items-center  position-relative'>
+          <span><img src={process.env.PUBLIC_URL + "/images/output-onlinegiftools.gif"} style={{height: '100px', width: "100px", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%"}} alt=""/></span>
+          </div>
+          </div>}
               {!isLoading && <button className="btn btn-secondary rounded-pill" style={{backgroundColor: "black", borderRadius: "10px"}}  onClick={handleCancel}>Scan again</button>}
             </>
           ) : (
@@ -128,7 +125,7 @@ let isDesktop = (width > 768);
                 ? undefined
                 : {
                     video: {
-                        facingMode: { exact: `environment` }
+                        facingMode: { exact: `user` }
                     }
                   }
             }

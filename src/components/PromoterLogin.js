@@ -68,7 +68,7 @@ export default function PromoterLogin() {
               {isLoading && (<span id="login-loading-text-span">Loading</span>)}
               {!isLoading && <span id="login-text-span">Login</span>}
             </button>
-            <Link to="/" className='w-100 d-flex justify-content-center mt-3' style={{color: "black", textDecoration: "none"}}>Not a promoter? Be one now</Link>
+            <Link to="https://bottmzup.com/contact-us" className='w-100 d-flex justify-content-center mt-3' style={{color: "black", textDecoration: "none"}}>Not a promoter? Be one now</Link>
           </form>
         </div>
       </div>

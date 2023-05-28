@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import Sidebar from '../common/Sidebar';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../common/Navbar';
 
 export default function PromoterEvents() {
 const navigate = useNavigate()
@@ -41,24 +42,27 @@ const formatDate = (dateStr) => {
   return date.toLocaleDateString('en-US', options)
 }
 
+function navigateSingluarClub(identity, index){
+  navigate(`${identity.event_name}`);
+  sessionStorage.setItem("onClickSingluarEventCall_ID", identity.id)
+}
   return (
     <div className='100vh position-relative'>
-    <nav className="navbar navbar-expand navbar-light align-items-center headerback w-100 py-2 py-md-3 px-3 px-lg-5 px-md-3" style={{backgroundColor: "black"}}>
-      <a className="navbar-brand ms-lg-4 ms-2 py-3 py-md-1 text-white" style={{fontWeight: "800"}} href="/"> <h3 className="primary-header m-0">BottmzUp</h3></a>
-      </nav>
+      <Navbar/>
     <div className='d-lg-flex px-lg-5 mb-4 p-3'>
       <div className='col-lg-3 p-0'>
         <Sidebar/>
       </div>
     <div className='col-lg-9 p-0'>
         <h1 className='my-lg-5 mb-5 ms-2 text-center primary-header' style={{color: "#E04949"}}>All Events</h1>
-        {isLoading && <div className='d-flex justify-content-center mt-auto' style={{height: "50vh"}}>
-          <div className='d-flex align-items-center'>
+        {isLoading && <div className='d-flex justify-content-center mt-auto mx-auto' style={{height: "50vh"}}>
+          <div className='d-flex align-items-center  position-relative'>
           <span><img src={process.env.PUBLIC_URL + "/images/output-onlinegiftools.gif"} style={{height: '100px', width: "100px", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%"}} alt=""/></span>
           </div>
           </div>}
         {!isLoading && <div className='d-flex flex-wrap'>
         {Object.entries(result)?.map(([date, objects]) => (
+          
           <div className="w-100 px-lg-2 mt-2" key={date}>
             <b className='px-md-2 px-2 ms-2'>{formatDate(date)}</b>
             <div className='d-md-flex w-100 px-md-2 flex-wrap'>
@@ -71,7 +75,7 @@ const formatDate = (dateStr) => {
               }           
                return(
                 <>
-               <div className='col-md-6 p-2' key={index} onClick={()=>navigate(`${identity.event_name}`)}>
+               <div className='col-md-6 p-2' key={index} onClick={()=>navigateSingluarClub(identity, index)}>
                 <div className='p-md-3 p-3 w-100 d-flex' style={{border: "1.5px solid black", borderRadius: "10px", boxShadow: "5px 5px rgb(205 207 209)"}}>
                     <img className="col-3 p-0" style={{height: "80px", borderRadius: "7px"}} alt="" src={identity.images_url}/> 
                     <div className='overflow-auto col px-3'>

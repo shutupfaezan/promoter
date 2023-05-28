@@ -28,7 +28,7 @@ export default function Sidebar() {
         <div className='p-2 p-md-3 p-lg-0'>
         <small className='nav-linkmt-0 ps-1 pb-0 mt-lg-3' style={{color: "black", fontSize: "14px"}}>Account</small>
         <div className='d-flex d-lg-block w-100'>
-        <Link to="/contact-us" className="nav-link my-2 mb-md-3 p-3 me-2 d-flex flex-column d-lg-block col col-lg-11 me-md-3" aria-current="page" style={{color: "black", border: "2px solid black", borderRadius: "10px"}}>
+        <Link to="https://bottmzup.com/contact-us" className="nav-link my-2 mb-md-3 p-3 me-2 d-flex flex-column d-lg-block col col-lg-11 me-md-3" aria-current="page" style={{color: "black", border: "2px solid black", borderRadius: "10px"}}>
         <i className="bi bi-question-circle me-2"></i>Help
         </Link>
           <Link to="/" onClick={()=>{sessionStorage.clear()}} className="nav-link my-2 mb-md-3 me-2 p-3 d-flex flex-column d-lg-block col col-lg-11" style={{color: "black", border: "2px solid black", borderRadius: "10px"}}>
