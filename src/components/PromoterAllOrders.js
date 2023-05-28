@@ -14,9 +14,9 @@ export default function PromoterAllOrders() {
     useEffect(() => {
       const fetchEventData = async () => {
           try {
-            const encodedEventName = encodeURIComponent(params?.event_name);
-              const { data } = await axios.get(`https://nightlife-2710.herokuapp.com/promoter-orders?event_name=${encodedEventName}&promoter_access_token=${sessionStorage?.promoter_token}`)
-              const { Event_Information, Order_Details } = data;
+            // const encodedEventName = encodeURIComponent(params?.event_name);
+              const { data } = await axios.get(`https://nightlife-2710.herokuapp.com/promoter-orders?event_id=${sessionStorage.onClickSingluarEventCall_ID}&promoter_access_token=${sessionStorage?.promoter_token}`)
+              const { Order_Details } = data;
               setOrderData(Order_Details);
             } catch (error) {
               console.log(error);
@@ -58,7 +58,8 @@ export default function PromoterAllOrders() {
                       <th className='col'>UserName</th>
                       <th className='col'>Quantity</th>
                       <th className='col'>Bill Total</th>
-                      <th className='col-3'>Description</th>
+                      <th className='col'>Sub-Promoter</th>
+                      <th className='col-2'>Description</th>
                       <th className='col'>Status</th>
                     </tr>
                   </thead>
@@ -70,7 +71,8 @@ export default function PromoterAllOrders() {
                         <td className='col'>{order.user_name}</td>
                         <td className='col'>{order.quantity}</td>
                         <td className='col'>₹{order.total_price}</td>
-                        <td className='text-truncate col-3'>{order.description}</td>
+                        <td className='col'>{order.sub_promoter_name === null ? "None" : order.sub_promoter_name}</td>
+                        <td className='text-truncate col-2'>{order.description}</td>
                         <td  className='col'
                           style={{
                             color:
