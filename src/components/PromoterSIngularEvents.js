@@ -53,19 +53,21 @@ export default function PromoterSingularEvents() {
 
   const genre = eventData?.genre?.split(", ")
 
-  const paidOrders = orderData?.filter((order) => order.status === "Entered");
+  const paidOrders = orderData?.filter((order) => order.status === "Paid");
   const ticketsBought = paidOrders;
   const unpaidTick = orderData?.filter((order) => order.status === "Unpaid");
 
 
 const totalPaidPrice = paidOrders?.reduce(
-(total, order) => total + parseFloat(order.total_price),
+(total, order) => total + parseFloat(order?.total_price),
 0
 );
+
 const totalTicks = ticketsBought?.reduce(
 (total, order) => total + parseFloat(order.quantity),
 0
 );
+
 const upaidQty = unpaidTick?.reduce(
 (total, order) => total + parseFloat(order.quantity),
 0
