@@ -112,7 +112,7 @@ const commisionPrice = totalPaidPrice * 0.02
           <Link className='text-center' style={{color: "crimson", textDecoration: "none"}} to="all-orders">View All Orders <i class="fa-solid fa-arrow-right"></i></Link>
         </div>
           </div>
-          <div className='px-md-5 px-3'>
+          <div className='px-md-5 px-3 pb-5'>
             <div className='d-flex justify-content-center w-100'>
             <h3 className="d-flex d-md-block primary-header px-md-5 mb-4" style={{color: "crimson"}}>Sub-Promoters<i className="fa-solid fa-square-plus mx-3" onClick={()=>{setShow(true)}} style={{fontSize: "27px"}}></i></h3>
             </div>

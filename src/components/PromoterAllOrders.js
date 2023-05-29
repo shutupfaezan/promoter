@@ -4,6 +4,7 @@ import axios from 'axios';
 import Input from "../common/Input";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { MobileOnlyView } from 'react-device-detect';
 
 export default function PromoterAllOrders() {
   const navigate = useNavigate();
@@ -57,11 +58,16 @@ export default function PromoterAllOrders() {
         <i className='fa-solid fa-arrow-left m-3' style={{ fontSize: '30px' }} onClick={handleGoBack}></i>
       </nav>
       <div className='d-flex justify-content-end mx-md-5 my-4'>
-        <div className='col-lg-3'>
+        <div className='col-md-3 col px-4 p-md-0'>
           <Input iconLeft='fa-solid fa-magnifying-glass' placeholder='Filter Items' handleChange={subSearch}></Input>
         </div>
       </div>
-      <div className='pt-4 w-100'>
+      <MobileOnlyView className='text-center px-4'>
+        <div className="p-4" style={{background: "#E8EBEE", borderRadius: "10px"}}>
+        Use a Tablet or Laptop device to view complete orders
+        </div>
+      </MobileOnlyView>
+      <div className='pt-4 w-100 d-md-block d-none'>
         {controlled_orders?.length === 0 ? (
           <div className='mx-md-5 text-center p-4 mx-3 my-5' style={{ background: '#e8ebee', borderRadius: '10px' }}>
             No orders yet! Inform people about your event and share the link to make it easy for them to order. Good Luck
