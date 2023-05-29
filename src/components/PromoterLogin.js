@@ -29,7 +29,6 @@ export default function PromoterLogin() {
       axios.post(`https://nightlife-2710.herokuapp.com/promoter-login`, values)
       .then((response)=>{
           setIsLoading(false)
-          console.log(response?.data)
           sessionStorage.setItem("promoter_token", response?.data?.access_token)
           sessionStorage.setItem("promoter_name", response?.data?.promoter_name)
           navigate('/promoter-dashboard')
