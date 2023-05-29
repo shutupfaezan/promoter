@@ -22,7 +22,9 @@ export default function PromoterReview() {
           setisLoading(false)
           setToastMessage("Event Created Successfully")
           setShowToast(true)
-          setTimeout(() => setShowToast(false), 2000);
+          setTimeout(() => setShowToast(false), 2000)
+          .then(()=>{window.location.reload()});
+
         } catch (error) {
           setisLoading(false)
           setShowToast(true)

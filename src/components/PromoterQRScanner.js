@@ -96,7 +96,7 @@ let isDesktop = (width > 768);
                 ? undefined
                 : {
                     video: {
-                        facingMode: { exact: `environment` }
+                        facingMode: { exact: `enviornment` }
                     }
                   }
             }
@@ -125,7 +125,7 @@ let isDesktop = (width > 768);
                 ? undefined
                 : {
                     video: {
-                        facingMode: { exact: `user` }
+                        facingMode: { exact: `environment` }
                     }
                   }
             }

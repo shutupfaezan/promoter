@@ -30,8 +30,8 @@ export default function SubpromoterDetailsModal(props) {
       <div className='px-md-5 pt-5 pb-4 p-4'>
         <div className="p-3 px-4 shadow" style={{borderRadius: "10px"}}>
         <p className='mb-0'>Name: {subPromoterDetails?.sub_promoter_name}</p>
-        <p className='mb-0'>Email Id: {subPromoterDetails?.email_id}</p>
-        <p className='mb-0'>Contact: {subPromoterDetails?.contact}</p>
+        <p className='mb-0'>Email Id: <a href={`mailto:${subPromoterDetails?.email_id}`} target='_blank'  rel="noreferrer noopener" style={{color: "black"}}>{subPromoterDetails?.email_id}</a></p>
+        <p className='mb-0'>Contact: <a target='_blank'  rel="noreferrer noopener" style={{color: "crimson", textDecoration: "none"}} href={`tel: +91${subPromoterDetails?.contact}`}>{subPromoterDetails?.contact}</a></p>
         <p className='mb-0'>Status: {subPromoterDetails?.status}</p>
         </div>
       </div>
